@@ -14,13 +14,11 @@ export const checkEmail = async (req: Request, res: Response, next: NextFunction
             return;
         }
         next();
-        
-    } catch (error) {
-    console.error("Error detallado:", error); // Esto se verá en los logs de Vercel
-    res.status(500).json({ 
-        message: "Error checking email",
-        details: error // SOLO para debug, borralo después
-    });
+
+      } catch (error) {
+        res.status(500).json({ 
+            message: "Error checking email" 
+        });
     }
 
 }
