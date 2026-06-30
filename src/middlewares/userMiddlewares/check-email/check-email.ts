@@ -21,5 +21,6 @@ export const checkEmail = async (req: Request, res: Response, next: NextFunction
         message: "Error checking email",
         details: error // SOLO para debug, borralo después
     });
+    }
 
 }
