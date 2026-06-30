@@ -3,6 +3,9 @@ import { UserModel } from "../../../models/user/userModel";
 
 export const checkEmail = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
+
+        await dbConnection();
+        
         const { email } = req.body;
 
         const exists = await UserModel.findOne({ email: email });
