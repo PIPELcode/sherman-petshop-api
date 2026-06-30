@@ -15,10 +15,12 @@ export const checkEmail = async (req: Request, res: Response, next: NextFunction
         }
         next();
 
-      } catch (error) {
+      } catch (error: any) {
+        
+        console.log("LOG DE ERROR:", error.message); // Esto se verá en los logs de Vercel
         res.status(500).json({ 
-            message: "Error checking email" 
+            message: "Error checking email",
+            debug: error.message // Lo vemos en Postman para no adivinar
         });
     }
-
 }
