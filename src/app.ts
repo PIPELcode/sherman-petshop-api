@@ -16,9 +16,7 @@ import router from "./routes/index";
 //ERROR HANDLER
 import { errorHandler } from "./middlewares/errHandler/errorHandler";
 
-
 const app = express();
-//const PORT = process.env.PORT;
 
 // Database
 dbConnection();
@@ -33,10 +31,5 @@ app.use("/api", router);
 // Error handler middleware
 app.use(errorHandler);
 
-
-// Start the server
-//app.listen(PORT, () => {
-//    console.log(`Server is running on port ${PORT}`);
-//});
 
 export default app;
