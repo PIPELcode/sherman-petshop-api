@@ -18,16 +18,10 @@ export const checkEmail = async (req: Request, res: Response, next: NextFunction
         }
         next();
 
-<<<<<<< HEAD
-        } catch (error) {
-=======
-      } catch (error: any) {
-        
-        console.log("LOG DE ERROR:", error.message); // Esto se verá en los logs de Vercel
->>>>>>> ade7b59d6d88f03b14cbf1df30c5fbcff2291ae5
+    } catch (error) {
+        console.error("Error checking email:", error);
         res.status(500).json({ 
-            message: "Error checking email",
-            debug: error.message // Lo vemos en Postman para no adivinar
+            message: "Internal server error" 
         });
     }
 }
