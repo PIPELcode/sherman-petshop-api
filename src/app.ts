@@ -18,7 +18,7 @@ import { errorHandler } from "./middlewares/errHandler/errorHandler";
 
 
 const app = express();
-const PORT = process.env.PORT;
+//const PORT = process.env.PORT;
 
 // Database
 dbConnection();
