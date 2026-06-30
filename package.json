@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
     "dev": "npx tsc --watch",
     "nodemon": "npx nodemon dist/app.js"
   },
