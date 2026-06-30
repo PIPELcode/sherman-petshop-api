@@ -16,10 +16,10 @@ import router from "./routes/index";
 //ERROR HANDLER
 import { errorHandler } from "./middlewares/errHandler/errorHandler";
 
+const app = express();
+
 // Database
 dbConnection();
-
-const app = express();
 
 // Middlewares
 app.use(cors());
