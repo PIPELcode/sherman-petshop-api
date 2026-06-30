@@ -18,7 +18,8 @@ import { errorHandler } from "./middlewares/errHandler/errorHandler";
 
 const app = express();
 
-
+// Database
+dbConnection();
 
 // Middlewares
 app.use(cors());

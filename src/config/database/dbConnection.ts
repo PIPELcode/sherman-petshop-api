@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
-let cachedConnection: typeof mongoose | null = null;
-
 export const dbConnection = async (): Promise<void> => {
-    if (cachedConnection) {
-        return;
-    }
+    try {
+        const dbUrl = process.env.MONGODB_URL;
+        if (!dbUrl) {
 
-    const dbUrl = process.env.MONGODB_URL;
-    if (!dbUrl) {
-        throw new Error("MONGODB_URL is not defined.");
-    }
+            throw new Error("MONGODB_URL is not defined in the environment variables.");
+            
+        }
 
-    cachedConnection = await mongoose.connect(dbUrl, {
-        bufferCommands: false,
-    });
-    console.log("Database connected successfully");
-};
+        await mongoose.connect(dbUrl);
+        console.log("Database connected successfully");
+
+    } catch (error) {
+        console.error("Error connecting to the database:", error);
+        throw error;
+    }
+}
