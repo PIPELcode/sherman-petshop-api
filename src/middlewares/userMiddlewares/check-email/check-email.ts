@@ -15,7 +15,7 @@ export const checkEmail = async (req: Request, res: Response, next: NextFunction
         }
         next();
 
-      } catch (error) {
+        } catch (error) {
         res.status(500).json({ 
             message: "Error checking email" 
         });
