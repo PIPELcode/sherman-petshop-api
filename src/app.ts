@@ -19,8 +19,15 @@ import { errorHandler } from "./middlewares/errHandler/errorHandler";
 const app = express();
 
 // Database
-dbConnection();
-
+app.use(async (_req, res, next) => {
+    try {
+        await dbConnection();
+        next();
+    } catch (error) {
+        console.error("An internal error has occurred", error);
+        res.status(500).json({ message: "Error: without connection to database" });
+    }
+});
 // Middlewares
 app.use(cors());
 app.use(express.json());
