@@ -29,7 +29,9 @@ app.use(async (_req, res, next) => {
     }
 });
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: "*",
+}));
 app.use(express.json());
 
 // Routes
