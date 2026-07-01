@@ -6,6 +6,13 @@ const router = Router();
 
 // ACA VAN TODAS LAS RUTAS DE LA API
 //Acordarse que es api/ y la ruta
+router.get("/", (_req, res) => {
+    res.json({
+        status: "API Activa",
+        message: "Bienvenido SHERMAN API en Vercel",
+        timestamp: new Date().toISOString()
+    });
+});
 
 router.use("/user", userRouter);
 router.use("/product", productRouter);
